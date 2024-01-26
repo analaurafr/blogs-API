@@ -1,4 +1,5 @@
 const express = require('express');
+const { login } = require('./routes');
 
 // ...
 
@@ -11,7 +12,7 @@ app.get('/', (_request, response) => {
 
 app.use(express.json());
 
-app.get('/health/live', (req, res) => res.sendStatus(200));
+app.use('/login', login);
 
 app.use((err, req, res, _next) => {
   console.error(err.stack);
