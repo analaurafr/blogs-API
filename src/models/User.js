@@ -1,42 +1,41 @@
 const UserModel = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const user = sequelize.define('User', {
     id: {
-      primaryKey: true,
       autoIncrement: true,
       allowNull: false,
-      type: DataTypes.INTEGER,
+      primaryKey: true,
+      type: DataTypes.INTEGER
     },
     displayName: {
       allowNull: false,
       type: DataTypes.STRING,
+      field: 'display_name'
     },
     email: {
       allowNull: false,
-      type: DataTypes.STRING,
+      type: DataTypes.STRING
     },
     password: {
-      allowNull: false,
       type: DataTypes.STRING,
+      allowNull: false
     },
     image: {
-      allowNull: true,
       type: DataTypes.STRING,
-    },
+      allowNull: false
+    }
   }, {
     tableName: 'users',
-    timestamps: false,
     underscored: true,
+    timestamps: false
   });
 
-  User.associate = (models) => {
-    User.hasMany(models.BlogPost,
-      {
-        foreignKey: 'userId',
-        as: 'blog_posts'
-      });
-  };
+  user.associate = (models) => {
+    user.hasMany(models.BlogPost, {
+      foreignKey: 'userId'
+    });
+  }
 
-  return User;
+  return user;
 }
 
-module.exports = UserModel;
+module.exports = UserModel
