@@ -16,6 +16,7 @@ const validateLogin = async (req, res, next) => {
       message: 'Invalid fields',
     });
   }
+
   next();
 };
 
@@ -49,11 +50,11 @@ const validateEmail = async (req, res, next) => {
       message: 'User already registered',
     });
   }
+
   next();
 };
 
-module.exports = { 
-  validateLogin,
+module.exports = { validateLogin,
   validateNameAndPassword,
   validateEmail,
 };
