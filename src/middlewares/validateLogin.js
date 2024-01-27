@@ -1,6 +1,6 @@
 const { loginService } = require('../services');
 
-const validadeLogin = async (req, res, next) => {
+const validateLogin = async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -16,4 +16,4 @@ const validadeLogin = async (req, res, next) => {
   next();
 };
 
-module.exports = validadeLogin;
+module.exports = validateLogin;
