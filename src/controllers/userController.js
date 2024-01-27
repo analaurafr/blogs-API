@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { createToken } = require('../utils/token');
-const userService = require('../services/userService');
+const userService = require('../services/userServices');
 
 const passwordSecret = process.env.JWT_SECRET;
 

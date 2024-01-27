@@ -1,9 +1,25 @@
-const { validateLogin, validateNameAndPassword, validateEmail } = require('./validates');
+const { validateEmail, validateLogin, validateNameAndPassword } = require('./validates');
 const { validateToken } = require('./validateToken');
+const { validateName } = require('./validateCategory');
+const { validateIfPostIsFromUser } = require('./validatePostUser');
+const { 
+  validateBody, 
+  validateCategoryIds,
+  validateUpdateBody, 
+  validateTokenEqualId,
+  validateIfPostExist,
+} = require('./validateBlogPost');
 
 module.exports = {
+  validateEmail,
   validateLogin,
   validateNameAndPassword,
-  validateEmail,
   validateToken,
+  validateName,
+  validateBody,
+  validateCategoryIds,
+  validateTokenEqualId,
+  validateUpdateBody,
+  validateIfPostExist,
+  validateIfPostIsFromUser,
 };
