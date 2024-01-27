@@ -9,30 +9,27 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-       await queryInterface.createTable('users', {
-        id: {
-          autoIncrement: true,
-          allowNull: false,
-          primaryKey: true,
-          type: Sequelize.INTEGER
-        },
-        displayName: {
-          allowNull: false,
-          type: Sequelize.STRING,
-          field: 'display_name'
-        },
-        email: {
-          allowNull: false,
-          type: Sequelize.STRING
-        },
-        password: {
-          type: Sequelize.STRING,
-          allowNull: false
-        },
-        image: {
-          type: Sequelize.STRING,
-        }
-       })
+    await queryInterface.createTable('users', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+
+      },
+      display_name: {
+        type: Sequelize.STRING
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      password: {
+        type: Sequelize.STRING
+      },
+      image: {
+        type: Sequelize.STRING
+      },
+    });
       },
 
   async down (queryInterface, Sequelize) {

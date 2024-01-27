@@ -10,17 +10,11 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     await queryInterface.createTable('posts_categories', {
-      postId: {
-        field: 'post_id',
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        allowNull: false,
+      post_id: {
+        type: Sequelize.INTEGER
       },
-      categoryId: {
-        field: 'category_id',
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-        allowNull: false
+      category_id: {
+        type: Sequelize.INTEGER
       }
     })
   },

@@ -11,15 +11,15 @@ module.exports = {
      */
     await queryInterface.createTable('categories', {
       id: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
       name: {
-        allowNull: false,
         type: Sequelize.STRING
       }
-    });
+    })
   },
 
   async down (queryInterface, Sequelize) {
