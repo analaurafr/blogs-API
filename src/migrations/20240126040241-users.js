@@ -15,7 +15,6 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-
       },
       display_name: {
         type: Sequelize.STRING
@@ -30,7 +29,7 @@ module.exports = {
         type: Sequelize.STRING
       },
     });
-      },
+  },
 
   async down (queryInterface, Sequelize) {
     /**
