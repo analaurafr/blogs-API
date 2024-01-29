@@ -48,12 +48,13 @@ const getPostById = (id) => BlogPost.findOne({
     through: { attributes: [] },
   }],
 });
-
 const updatePost = (id, title, content) => BlogPost.update({ title, content }, { where: { id } });
+const deletePost = (id) => BlogPost.destroy({ where: { id } });
 
 module.exports = {
   addPost,
   getPosts,
   getPostById,
   updatePost,
+  deletePost,
 };

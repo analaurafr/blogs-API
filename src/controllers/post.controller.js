@@ -39,7 +39,6 @@ const getPosts = async (req, res) => {
     return res.status(500).json({ message: 'Internal Error' });
   } 
 };
-
 const getPostById = async (req, res) => {
   try {
     const { id } = req.params; const post = await postService.getPostById(id);
