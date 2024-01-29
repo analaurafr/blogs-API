@@ -1,9 +1,16 @@
 const jwt = require('jsonwebtoken');
-const { postService } = require('../services');
+const { postService, userService } = require('../services');
+
+const secret = process.env.JWT_SECRET;
 
 const getUserId = async (authorization) => {
-  const token = authorization.split(' ')[1]; const secret = process.env.JWT_SECRET;
-  const decoded = jwt.verify(token, secret); return decoded.data.userId;
+  const token = authorization.split(' ')[1]; const decoded = jwt.verify(token, secret);
+  return decoded.data.userId;
+};
+
+const getUserToken = async (authorization) => {
+  const token = authorization.split(' ')[1]; const decoded = jwt.verify(token, secret);
+  return decoded.data.userId;
 };
 
 const deletePost = async (req, res) => {
@@ -28,6 +35,19 @@ const deletePost = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  try {
+    const { authorization } = req.headers;
+    const id = await getUserToken(authorization);
+
+    await userService.deleteUser(id);
+    return res.status(204).end();
+  } catch (error) {
+    return res.status(500).json({ message: 'Internal Error' });
+  }
+};
+
 module.exports = {
   deletePost,
+  deleteUser,
 };
